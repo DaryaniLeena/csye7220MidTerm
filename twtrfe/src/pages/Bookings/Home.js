@@ -10,7 +10,7 @@ const THome = () => {
     const [error, setError] = React.useState("");
 
     const getBookings = () => {
-        let url = "http://34.203.107.175:5000/bookings-results";
+        let url = "http://18.215.49.36:5000/bookings-results";
         return fetch(url, {
             method: "GET",
             headers: new Headers({
