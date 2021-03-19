@@ -74,7 +74,7 @@ const Compose = () => {
                 body: JSON.stringify(paramdict),
             };
             const response = await fetch(
-                "http://34.203.107.175:5000/book",
+                "http://18.215.49.36:5000/book",
                 config
             );
             //const json = await response.json()
