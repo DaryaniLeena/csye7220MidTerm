@@ -8,7 +8,7 @@ const THome = () => {
     const [bookings, setBookings] = React.useState([]);
 
     const [error, setError] = React.useState("");
-
+    // 18.215.49.36
     const getBookings = () => {
         let url = "http://18.215.49.36:5000/bookings-results";
         return fetch(url, {
@@ -35,7 +35,7 @@ const THome = () => {
                         console.log("*******");
                         const { results } = data;
                         console.log(results);
-                        setBookings([...results]);
+                        setBookings(results);
                         console.log(bookings);
                         // setLoading(false);
                     } else {
