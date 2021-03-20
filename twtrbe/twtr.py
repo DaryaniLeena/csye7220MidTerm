@@ -243,14 +243,10 @@ def get_tweets_results():
 
 @app.route("/bookings-results", methods=["GET"])
 def get_booking_results():
-    return json.dumps({"results":
-
-                       sorted(
-                           bookings.values(),
-                           key=lambda t: t['user']
-                       )
-
-                       })
+    db = mongo_client['uber_trips']
+    collection = db['bookings']
+    # list(col.find())
+    return json.dumps({"results": list(collection.find({}))})
 
 
 @app.route("/tweets-week-results", methods=["GET"])
