@@ -16,4 +16,4 @@ sudo mv ./build /var/www/html
 cd /home/ubuntu/csye7220MidTerm/uberbe
 pip3 install -r requirements.txt
 # gunicorn --bind 0.0.0.0 main:app -D
-gunicorn -w 4 -b 0.0.0.0 main:app
+gunicorn -w 4 -b 0.0.0.0 wsgi:app
