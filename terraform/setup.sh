@@ -14,12 +14,13 @@ sudo cp /home/ubuntu/csye7220MidTerm/uberfe/uber.nginx /etc/nginx/sites-availabl
 sudo chmod 777 /etc/nginx/sites-available/uber.nginx
 sudo ln -s /etc/nginx/sites-available/uber.nginx /etc/nginx/sites-enabled/uber.nginx
 sudo systemctl reload nginx
-python3 -m /home/ubuntu/csye7220MidTerm/uberbe/venv env
-source /home/ubuntu/csye7220MidTerm/uberbe/env/bin/activate
-# cd /home/ubuntu/csye7220MidTerm/uberfe
-# sudo rm /var/www/html -r
-# sudo mv ./build /var/www/html
+
+sudo cp /home/ubuntu/csye7220MidTerm/uberbe/uberbe.service /etc/systemd/system/uberbe.service
+python3 -m venv .venv
+source .venv/bin/activate
 cd /home/ubuntu/csye7220MidTerm/uberbe
 pip3 install -r /home/ubuntu/csye7220MidTerm/uberbe/requirements.txt
+sudo systemctl daemon-reload
+sudo systemctl start uberbe
 # gunicorn --bind 0.0.0.0 main:app -D
-gunicorn -w 4 -b 0.0.0.0:5000 --chdir /home/ubuntu/csye7220MidTerm/uberbe wsgi:app
+# gunicorn -w 4 -b 0.0.0.0:5000 --chdir /home/ubuntu/csye7220MidTerm/uberbe wsgi:app
