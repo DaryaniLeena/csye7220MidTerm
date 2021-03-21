@@ -15,9 +15,10 @@ sudo chmod 777 /etc/nginx/sites-available/uber.nginx
 sudo ln -s /etc/nginx/sites-available/uber.nginx /etc/nginx/sites-enabled/uber.nginx
 sudo systemctl reload nginx
 
+
+python3 -m /home/ubuntu/csye7220MidTerm/uberbe/venv env
+source /home/ubuntu/csye7220MidTerm/uberbe/env/bin/activate
 sudo cp /home/ubuntu/csye7220MidTerm/uberbe/uberbe.service /etc/systemd/system/uberbe.service
-python3 -m /home/ubuntu/csye7220MidTerm/uberbe/venv .venv
-source /home/ubuntu/csye7220MidTerm/uberbe/.venv/bin/activate
 # cd /home/ubuntu/csye7220MidTerm/uberfe
 # sudo rm /var/www/html -r
 # sudo mv ./build /var/www/html

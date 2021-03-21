@@ -5,8 +5,8 @@ After=network.target
 [Service] 
 User=ubuntu 
 WorkingDirectory=/home/ubuntu/csye7220MidTerm/uberbe 
-Environment="PATH=/home/ubuntu/csye7220MidTerm/uberbe/.venv/bin" 
-ExecStart=/home/ubuntu/twtrbe/.venv/bin/gunicorn --workers 3 -b 0.0.0.0:5000 -t 600 --chdir /home/ubuntu/csye7220MidTerm/uberbe wsgi:app 
+Environment="PATH=/home/ubuntu/csye7220MidTerm/uberbe/env/bin" 
+ExecStart=/home/ubuntu/twtrbe/env/bin/gunicorn --workers 3 -b 0.0.0.0:5000 -t 600 --chdir /home/ubuntu/csye7220MidTerm/uberbe wsgi:app 
 Restart=always 
 
 [Install] 
