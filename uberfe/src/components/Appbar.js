@@ -1,6 +1,14 @@
 import React from "react";
 import clsx from "clsx";
-import { Router, Route, Link } from "react-router-dom";
+import {
+  Router,
+  Route,
+  Link,
+  Redirect,
+  Switch,
+  Workspace,
+  BrowserRouter,
+} from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -25,6 +33,7 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import LayersIcon from "@material-ui/icons/Layers";
 
 import config from "../config/config";
+import NotFoundPage from "./NotFoundPage";
 
 // import your components:
 import Home from "../pages/Home";
@@ -236,6 +245,24 @@ export default function Dashboard() {
             <ListItem
               button
               component={Link}
+              to="/home"
+              onClick={onItemClick("Home")}
+            >
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+              {title === "Home" && (
+                <ListItemIcon>
+                  <IconButton onClick={handleDrawerCollapsed}>
+                    <ChevronLeftIcon />
+                  </IconButton>
+                </ListItemIcon>
+              )}
+            </ListItem>
+            <ListItem
+              button
+              component={Link}
               to="/bookings"
               onClick={onItemClick("View Booking")}
             >
@@ -275,19 +302,22 @@ export default function Dashboard() {
             {/* SignUp menu item */}
           </List>
         </Drawer>
-
-        {/* This is your mission control: Matches URLs above to your components */}
-        <main className={classes.content}>
+        <Switch className={classes.content}>
+          {/* This is your mission control: Matches URLs above to your components */}
+          {/* <main className={classes.content}> */}
           {/* menu paths */}
-          <Route exact path="/" component={Home} />
-          <Route path="/bookings" component={THome} />
-          <Route path="/makeBooking" component={Compose} />
+          <Route exact path="/" component={() => <Redirect to="/home" />} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/bookings" component={THome} />
+          <Route exact path="/makeBooking" component={Compose} />
+          <Route component={NotFoundPage} />
           {/* <Route path="/signin" component={SignIn} />
                     <Route path="/signup" component={SignUp} />
                     <Route path="/password_reset" component={PasswordReset} />
                     <Route path="/password_change" component={PasswordChange} /> */}
           {/* <Route path="/activity"><ActivityHome /></Route> */}
-        </main>
+          {/* </main> */}
+        </Switch>
       </Router>
 
       {/* Whatever you put here will appear on all your pages, style appropriately! */}

@@ -18,7 +18,8 @@ function Home(props) {
 
   return (
     <div className={classes.root}>
-      <h1>Welcome to Uber for Buses</h1>
+      <h1 className="hometext">Welcome to Uber for Buses</h1>
+      <img src={require("../image/ub1.jpg")} />
     </div>
   );
 }
