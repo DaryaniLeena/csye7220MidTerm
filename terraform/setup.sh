@@ -14,6 +14,6 @@ npm run build
 sudo rm /var/www/html -r
 sudo mv ./build /var/www/html
 cd /home/ubuntu/csye7220MidTerm/uberbe
-pip3 install -r requirements.txt
+pip3 install -r /home/ubuntu/csye7220MidTerm/uberbe/requirements.txt
 # gunicorn --bind 0.0.0.0 main:app -D
-gunicorn -w 4 -b 0.0.0.0 wsgi:app
+gunicorn -w 4 -b 0.0.0.0 --chdir /home/ubuntu/csye7220MidTerm/uberbe wsgi:app
