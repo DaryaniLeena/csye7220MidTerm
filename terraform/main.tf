@@ -121,7 +121,7 @@ resource "aws_instance" "web" {
 
   connection {
     #  need to put ip here in host
-    host        = var.host
+    host        = "18.215.49.36"
     type        = "ssh"
     user        = "ubuntu"
     private_key = file("Devops-KeyPair-2021.pem")
