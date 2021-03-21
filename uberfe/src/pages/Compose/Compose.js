@@ -173,10 +173,10 @@ const Compose = () => {
               margin="normal"
               fullWidth
               id="travel_date"
-              label={"Travel Date"}
+              label={""}
               name="travel_date"
               type="date"
-              defaultValue="2021-04-15"
+              defaultValue=""
               autoFocus
               required
             />
