@@ -3,5 +3,4 @@ flask-cors
 flask-api
 datetime
 python-dateutil
-uuid
 pymongo
