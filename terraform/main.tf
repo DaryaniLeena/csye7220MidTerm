@@ -89,6 +89,13 @@ resource "aws_security_group" "application_Security_Group" {
     protocol    = "tcp"
   }
 
+  ingress {
+    cidr_blocks = var.ingressCIDRblock
+    from_port   = 8000
+    to_port     = 8000
+    protocol    = "tcp"
+  }
+
   # allow egress of all ports
   egress {
     from_port   = 0
