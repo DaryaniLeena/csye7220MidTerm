@@ -118,6 +118,9 @@ resource "aws_instance" "web" {
   tags = {
     Name = "ec2Instance"
   }
+}
+
+resource "null_resource" "remote_exec_from_github" {
 
   connection {
     #  need to put ip here in host
@@ -137,7 +140,6 @@ resource "aws_instance" "web" {
     ]
   }
 }
-
 
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.web.id
