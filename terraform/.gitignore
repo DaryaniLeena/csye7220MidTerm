@@ -15,3 +15,5 @@ Devops-KeyPair-2021.pem
 crash.log
 .terraformrc
 terraform.rc
+
+.terraform.lock.hcl
