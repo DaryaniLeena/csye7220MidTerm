@@ -1,13 +1,10 @@
-[Unit] 
+[[Unit]
 Description=<a description of our application> 
 After=network.target 
 
-[Service] 
-User=ubuntu 
-WorkingDirectory=/home/ubuntu/csye7220MidTerm/uberbe 
-Environment="PATH=/home/ubuntu/csye7220MidTerm/uberbe/env/bin" 
-ExecStart=/home/ubuntu/uberbe/env/bin/gunicorn --workers 3 -b 0.0.0.0:5000 -t 600 --chdir /home/ubuntu/csye7220MidTerm/uberbe wsgi:app 
+[Service] User=ubuntu
+WorkingDirectory=/home/ubuntu/csye7220MidTerm/uberbe
+ExecStart=/home/ubuntu/.local/bin/gunicorn --workers 3 -b 0.0.0.0:5000 -t 600 wsgi:app
 Restart=always 
 
-[Install] 
-WantedBy=multi-user.target
+[Install] WantedBy=multi-user.target
