@@ -76,7 +76,7 @@ const Compose = () => {
       // 18.215.49.36
       // for local: "http://localhost:5000/book",
       // for prod : "http://18.215.49.36:5000/book",
-      const response = await fetch("http://localhost:5000/book", config);
+      const response = await fetch("http://18.215.49.36:5000/book", config);
       //const json = await response.json()
       if (response.ok) {
         //return json

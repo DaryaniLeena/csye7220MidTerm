@@ -12,7 +12,7 @@ const THome = () => {
   // for local -  let url = "http://localhost:5000/bookings-results";
   //   for prod: let url = "http://18.215.49.36:5000/bookings-results";
   const getBookings = () => {
-    let url = "http://localhost:5000/bookings-results";
+    let url = "http://18.215.49.36:5000/bookings-results";
     return fetch(url, {
       method: "GET",
       headers: new Headers({
