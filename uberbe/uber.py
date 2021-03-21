@@ -8,13 +8,11 @@ import pytz
 import os
 import sys
 import time
-import uuid
 import json
 import random
 import string
 import pathlib
 import io
-from uuid import UUID
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 import pymongo
