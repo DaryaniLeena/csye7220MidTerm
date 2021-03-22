@@ -1,13 +1,13 @@
 import React from "react";
 import clsx from "clsx";
 import {
-  Router,
-  Route,
-  Link,
-  Redirect,
-  Switch,
-  Workspace,
-  BrowserRouter,
+    Router,
+    Route,
+    Link,
+    Redirect,
+    Switch,
+    Workspace,
+    BrowserRouter,
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
@@ -45,282 +45,286 @@ const history = createBrowserHistory();
 
 // css
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
-  },
-  toolbarIcon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: 36,
-  },
-  menuButtonHidden: {
-    display: "none",
-  },
-  title: {
-    flexGrow: 1,
-  },
-  drawerPaper: {
-    position: "relative",
-    whiteSpace: "nowrap",
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerPaperClose: {
-    overflowX: "hidden",
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: theme.spacing(7),
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9),
+    root: {
+        display: "flex",
     },
-  },
-  drawerPaperCollapsed: {
-    overflowX: "hidden",
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: theme.spacing(0),
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(0),
+    toolbar: {
+        paddingRight: 24, // keep right padding when drawer closed
     },
-  },
-  appBarSpacer: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    height: "100vh",
-    overflow: "auto",
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
-  },
-  fixedHeight: {
-    height: 240,
-  },
-  footer: {
-    position: "fixed",
-    left: 0,
-    bottom: 0,
-    width: "100%",
-    backgroundColor: "grey",
-    color: "white",
-    textAlign: "center",
-    fontStyle: "italic",
-  },
+    toolbarIcon: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        padding: "0 8px",
+        ...theme.mixins.toolbar,
+    },
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+        transition: theme.transitions.create(["width", "margin"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(["width", "margin"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
+    menuButton: {
+        marginRight: 36,
+    },
+    menuButtonHidden: {
+        display: "none",
+    },
+    title: {
+        flexGrow: 1,
+    },
+    drawerPaper: {
+        position: "relative",
+        whiteSpace: "nowrap",
+        width: drawerWidth,
+        transition: theme.transitions.create("width", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
+    drawerPaperClose: {
+        overflowX: "hidden",
+        transition: theme.transitions.create("width", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        width: theme.spacing(7),
+        [theme.breakpoints.up("sm")]: {
+            width: theme.spacing(9),
+        },
+    },
+    drawerPaperCollapsed: {
+        overflowX: "hidden",
+        transition: theme.transitions.create("width", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        width: theme.spacing(0),
+        [theme.breakpoints.up("sm")]: {
+            width: theme.spacing(0),
+        },
+    },
+    appBarSpacer: theme.mixins.toolbar,
+    content: {
+        flexGrow: 1,
+        height: "100vh",
+        overflow: "auto",
+    },
+    container: {
+        paddingTop: theme.spacing(4),
+        paddingBottom: theme.spacing(4),
+    },
+    paper: {
+        padding: theme.spacing(2),
+        display: "flex",
+        overflow: "auto",
+        flexDirection: "column",
+    },
+    fixedHeight: {
+        height: 240,
+    },
+    footer: {
+        position: "fixed",
+        left: 0,
+        bottom: 0,
+        width: "100%",
+        backgroundColor: "grey",
+        color: "white",
+        textAlign: "center",
+        fontStyle: "italic",
+    },
 }));
 
 //~dk
 const isAuthorised = config.auth.isAuthenticated();
 
 export default function Dashboard() {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const [collapsed, setCollapsed] = React.useState(false);
-  const [title, setTitle] = React.useState("Home");
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(true);
+    const [collapsed, setCollapsed] = React.useState(false);
+    const [title, setTitle] = React.useState("Home");
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-    setCollapsed(false);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-    setCollapsed(false);
-  };
-  const handleDrawerCollapsed = () => {
-    setCollapsed(true);
-    setOpen(false);
-  };
-  const onItemClick = (title) => () => {
-    setTitle(title);
-  };
+    const handleDrawerOpen = () => {
+        setOpen(true);
+        setCollapsed(false);
+    };
+    const handleDrawerClose = () => {
+        setOpen(false);
+        setCollapsed(false);
+    };
+    const handleDrawerCollapsed = () => {
+        setCollapsed(true);
+        setOpen(false);
+    };
+    const onItemClick = (title) => () => {
+        setTitle(title);
+    };
 
-  return (
-    <div className={classes.root}>
-      <CssBaseline />
+    return (
+        <div className={classes.root}>
+            <CssBaseline />
 
-      {/* This is the header AppBar */}
-      <AppBar
-        position="absolute"
-        className={clsx(
-          classes.appBar,
-          open && classes.appBarShift,
-          collapsed && classes.appBar
-        )}
-      >
-        <Toolbar title={title} className={classes.toolbar}>
-          {/* The Menu icon exposes the left pane menu bar */}
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(
-              classes.menuButton,
-              open && classes.menuButtonHidden
-            )}
-          >
-            <MenuIcon />
-          </IconButton>
+            {/* This is the header AppBar */}
+            <AppBar
+                position="absolute"
+                className={clsx(
+                    classes.appBar,
+                    open && classes.appBarShift,
+                    collapsed && classes.appBar
+                )}
+            >
+                <Toolbar title={title} className={classes.toolbar}>
+                    {/* The Menu icon exposes the left pane menu bar */}
+                    <IconButton
+                        edge="start"
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        className={clsx(
+                            classes.menuButton,
+                            open && classes.menuButtonHidden
+                        )}
+                    >
+                        <MenuIcon />
+                    </IconButton>
 
-          {/* The title is set by the components */}
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
-            {title}
-          </Typography>
+                    {/* The title is set by the components */}
+                    <Typography
+                        component="h1"
+                        variant="h6"
+                        color="inherit"
+                        noWrap
+                        className={classes.title}
+                    >
+                        {title}
+                    </Typography>
 
-          {/* For kicks */}
-          <IconButton color="inherit">
+                    {/* For kicks */}
+                    {/* <IconButton color="inherit">
             <Badge badgeContent={2} color="secondary">
               <NotificationsIcon />
             </Badge>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+          </IconButton> */}
+                </Toolbar>
+            </AppBar>
 
-      {/* The Router component routes URLs to your components */}
-      <Router history={history} title={title}>
-        {/* Drawers are left pane menu items in React-speak */}
-        <Drawer
-          variant="permanent"
-          classes={{
-            paper: clsx(
-              classes.drawerPaper,
-              !open && classes.drawerPaperClose,
-              collapsed && classes.drawerPaperCollapsed
-            ),
-          }}
-          open={open}
-        >
-          <div className={classes.toolbarIcon}>
-            {/* This icon collapses the left pane enough to show menu item icons */}
-            <IconButton onClick={handleDrawerClose}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </div>
-          <Divider />
+            {/* The Router component routes URLs to your components */}
+            <Router history={history} title={title}>
+                {/* Drawers are left pane menu items in React-speak */}
+                <Drawer
+                    variant="permanent"
+                    classes={{
+                        paper: clsx(
+                            classes.drawerPaper,
+                            !open && classes.drawerPaperClose,
+                            collapsed && classes.drawerPaperCollapsed
+                        ),
+                    }}
+                    open={open}
+                >
+                    <div className={classes.toolbarIcon}>
+                        {/* This icon collapses the left pane enough to show menu item icons */}
+                        <IconButton onClick={handleDrawerClose}>
+                            <ChevronLeftIcon />
+                        </IconButton>
+                    </div>
+                    <Divider />
 
-          {/* Left pane menu items */}
-          <List>
-            {/* Tweets menu item*/}
-            <ListItem
-              button
-              component={Link}
-              to="/home"
-              onClick={onItemClick("Home")}
-            >
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-              {title === "Home" && (
-                <ListItemIcon>
-                  <IconButton onClick={handleDrawerCollapsed}>
-                    <ChevronLeftIcon />
-                  </IconButton>
-                </ListItemIcon>
-              )}
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/bookings"
-              onClick={onItemClick("View Booking")}
-            >
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="View Booking" />
-              {title === "View Booking" && (
-                <ListItemIcon>
-                  <IconButton onClick={handleDrawerCollapsed}>
-                    <ChevronLeftIcon />
-                  </IconButton>
-                </ListItemIcon>
-              )}
-            </ListItem>
+                    {/* Left pane menu items */}
+                    <List>
+                        {/* Tweets menu item*/}
+                        <ListItem
+                            button
+                            component={Link}
+                            to="/home"
+                            onClick={onItemClick("Home")}
+                        >
+                            <ListItemIcon>
+                                <DashboardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Home" />
+                            {title === "Home" && (
+                                <ListItemIcon>
+                                    <IconButton onClick={handleDrawerCollapsed}>
+                                        <ChevronLeftIcon />
+                                    </IconButton>
+                                </ListItemIcon>
+                            )}
+                        </ListItem>
+                        <ListItem
+                            button
+                            component={Link}
+                            to="/bookings"
+                            onClick={onItemClick("View Booking")}
+                        >
+                            <ListItemIcon>
+                                <DashboardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="View Booking" />
+                            {title === "View Booking" && (
+                                <ListItemIcon>
+                                    <IconButton onClick={handleDrawerCollapsed}>
+                                        <ChevronLeftIcon />
+                                    </IconButton>
+                                </ListItemIcon>
+                            )}
+                        </ListItem>
 
-            {/* Compose menu item*/}
-            <ListItem
-              button
-              component={Link}
-              to="/makeBooking"
-              onClick={onItemClick("Make Booking")}
-            >
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Make Booking" />
-              {title === "Make Booking" && (
-                <ListItemIcon>
-                  <IconButton onClick={handleDrawerCollapsed}>
-                    <ChevronLeftIcon />
-                  </IconButton>
-                </ListItemIcon>
-              )}
-            </ListItem>
+                        {/* Compose menu item*/}
+                        <ListItem
+                            button
+                            component={Link}
+                            to="/makeBooking"
+                            onClick={onItemClick("Make Booking")}
+                        >
+                            <ListItemIcon>
+                                <DashboardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Make Booking" />
+                            {title === "Make Booking" && (
+                                <ListItemIcon>
+                                    <IconButton onClick={handleDrawerCollapsed}>
+                                        <ChevronLeftIcon />
+                                    </IconButton>
+                                </ListItemIcon>
+                            )}
+                        </ListItem>
 
-            {/* SignUp menu item */}
-          </List>
-        </Drawer>
-        <Switch className={classes.content}>
-          {/* This is your mission control: Matches URLs above to your components */}
-          {/* <main className={classes.content}> */}
-          {/* menu paths */}
-          <Route exact path="/" component={() => <Redirect to="/home" />} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/bookings" component={THome} />
-          <Route exact path="/makeBooking" component={Compose} />
-          <Route component={NotFoundPage} />
-          {/* <Route path="/signin" component={SignIn} />
+                        {/* SignUp menu item */}
+                    </List>
+                </Drawer>
+                <Switch className={classes.content}>
+                    {/* This is your mission control: Matches URLs above to your components */}
+                    {/* <main className={classes.content}> */}
+                    {/* menu paths */}
+                    <Route
+                        exact
+                        path="/"
+                        component={() => <Redirect to="/home" />}
+                    />
+                    <Route exact path="/home" component={Home} />
+                    <Route exact path="/bookings" component={THome} />
+                    <Route exact path="/makeBooking" component={Compose} />
+                    <Route component={NotFoundPage} />
+                    {/* <Route path="/signin" component={SignIn} />
                     <Route path="/signup" component={SignUp} />
                     <Route path="/password_reset" component={PasswordReset} />
                     <Route path="/password_change" component={PasswordChange} /> */}
-          {/* <Route path="/activity"><ActivityHome /></Route> */}
-          {/* </main> */}
-        </Switch>
-      </Router>
+                    {/* <Route path="/activity"><ActivityHome /></Route> */}
+                    {/* </main> */}
+                </Switch>
+            </Router>
 
-      {/* Whatever you put here will appear on all your pages, style appropriately! */}
-    </div>
-  );
+            {/* Whatever you put here will appear on all your pages, style appropriately! */}
+        </div>
+    );
 }
