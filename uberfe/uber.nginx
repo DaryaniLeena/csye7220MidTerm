@@ -6,6 +6,12 @@ index index.html;
 try_files $uri $uri/ /index.html; 
 access_log /var/log/nginx/reverse-access.log; 
 error_log /var/log/nginx/reverse-error.log;
+
+error_page 404 /custom_404.html;
+        location = /custom_404.html {
+                root /usr/share/nginx/html/notfound.html;
+                internal;
+        }
  location /{
  try_files $uri $uri/ =404; 
  add_header Cache-Control "no-cache";
