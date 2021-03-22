@@ -10,7 +10,7 @@ const BookingList = ({ bookings }) => {
             bounceFirstRowOnMount={true}
             maxSwipeDistance={160}
             renderItem={BookingItem}
-            renderQuickActions={BookingActions}
+            // renderQuickActions={BookingActions}
         />
     );
 };

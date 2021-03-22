@@ -378,16 +378,13 @@ def applyCollectionLevelUpdates():
 ################################################
 @app.route("/")
 def home():
-    return """Welcome to online mongo/twitter testing ground!<br />
+    return """Welcome to online mongo/uber for bus testing ground!<br />
         <br />
         Run the following endpoints:<br />
         From collection:<br/>
-        http://localhost:5000/tweets<br />
-        http://localhost:5000/tweets-week<br />
-        http://localhost:5000/tweets-week-results<br />
-        Create new data:<br />
-        http://localhost:5000/mock-tweets<br />
-        Optionally, to purge database: http://localhost:5000/purge-db"""
+        http://localhost:5000/book<br />
+        http://localhost:5000/bookings-results<br />
+       """
 
 
 # add new tweet, for testing
