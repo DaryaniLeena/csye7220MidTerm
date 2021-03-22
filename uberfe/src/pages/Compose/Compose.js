@@ -143,7 +143,14 @@ const Compose = () => {
         let date = newDate.getDate();
         let month = newDate.getMonth() + 1;
         let year = newDate.getFullYear();
-        let time = newDate.getHours() + ":" + newDate.getMinutes();
+        let time =
+            (newDate.getHours() < 10
+                ? `0${newDate.getHours()}`
+                : `${newDate.getHours()}`) +
+            ":" +
+            (newDate.getMinutes() < 10
+                ? `0${newDate.getMinutes()}`
+                : `${newDate.getMinutes()}`);
         return `${year}${separator}${
             month < 10 ? `0${month}` : `${month}`
         }${separator}${date}T${time}`;
@@ -228,7 +235,7 @@ const Compose = () => {
                             //   for date change type = date
                             type="datetime-local"
                             inputProps={{
-                                min: new Date().toLocaleString() + "",
+                                // min: new Date().toLocaleString() + "",
                                 min: getCurrentDate(),
                                 max: getfutureDate(),
                                 // min: "2021-03-22T17:30",
