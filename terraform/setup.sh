@@ -6,6 +6,7 @@ sudo apt-get install nodejs git nginx python3-pip -y
 sudo apt install npm
 cd /home/ubuntu
 git clone https://DaryaniLeena:Gitpass03@github.com/DaryaniLeena/csye7220MidTerm.git
+sudo cp /home/ubuntu/csye7220MidTerm/uberfe/notfound.html /usr/share/nginx/html/notfound.html
 cd /home/ubuntu/csye7220MidTerm/uberfe
 npm install
 npm run build
