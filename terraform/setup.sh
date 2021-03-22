@@ -1,5 +1,5 @@
 #! /bin/bash
-# Will need github id and pwd
+
 sudo apt-get update
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install nodejs git nginx python3-pip -y
@@ -17,12 +17,9 @@ sudo systemctl reload nginx
 
 ##backend
 
-# python3 -m /home/ubuntu/csye7220MidTerm/uberbe/venv env
-# source /home/ubuntu/csye7220MidTerm/uberbe/env/bin/activate
 sudo cp /home/ubuntu/csye7220MidTerm/uberbe/uberbe.service /etc/systemd/system/
 cd /home/ubuntu/csye7220MidTerm/uberbe
-pip3 insatall gunicorn 
+pip3 install gunicorn 
 pip3 install -r /home/ubuntu/csye7220MidTerm/uberbe/requirements.txt
-# gunicorn -w 4 -b 0.0.0.0:5000 --chdir /home/ubuntu/csye7220MidTerm/uberbe wsgi:app
 sudo systemctl daemon-reload
 sudo systemctl start uberbe 
