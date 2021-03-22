@@ -2,32 +2,46 @@
 
 ### Functionality:
 
--   A user can book a bus between Start destination and end destination for a given date.
--   A uer can retrieve all the bookings.
+- A user can book a bus between Start destination and end destination for a given date.
+- A uer can retrieve all the bookings.
 
 ## Requirements
 
--   Terraform
--   AWS Account
--   AWS CLI
+- Terraform
+- AWS Account
+- AWS CLI
+
+## Clone the project
+
+```sh
+   git clone git@github.com:DaryaniLeena/csye7220MidTerm.git
+```
 
 ## Basic Installation
 
 Make sure you have Terraform installed. Navigate to the folder `terraform`
 
--   cd csye7220MidTerm/terraform
+```sh
+   cd csye7220MidTerm/terraform
+```
 
 Initialize the terraform directory using command:
 
--   terraform init
+```sh
+   terraform init
+```
 
 Create a terraform plan using command:
 
--   terraform plan
+```sh
+  terraform plan
+```
 
 Spin up the AWS resources using command:
 
--   terraform apply --auto-approve
+```sh
+   terraform apply
+```
 
 ## Run the application
 
@@ -39,5 +53,5 @@ http://18.215.49.36:5000
 
 ## Authors
 
--   Leena Daryani daryani.l@northeastern.edu 001035781
--   Vidhi Nagda nagda.v@northeastern.edu 001306579
+- Leena Daryani daryani.l@northeastern.edu 001035781
+- Vidhi Nagda nagda.v@northeastern.edu 001306579
