@@ -7,9 +7,9 @@ try_files $uri $uri/ /index.html;
 access_log /var/log/nginx/reverse-access.log; 
 error_log /var/log/nginx/reverse-error.log;
 
-error_page 404 /custom_404.html;
-        location = /custom_404.html {
-                root /usr/share/nginx/html/notfound.html;
+error_page 404 /notfound.html;
+        location = /notfound.html {
+                root /usr/share/nginx/html;
                 internal;
         }
  location /{
